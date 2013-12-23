@@ -12,6 +12,14 @@
 		<meta property="og:site_name" content="Scheda"/>
 	</head>
 	<body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=237469856408256";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
         <header>
             <span class="helper"></span>
             <img src="img/logo.png" alt="Scheda Logo" width="319" height="63"/>
@@ -368,9 +376,14 @@
         sectionName     (string)      optional, default is ''
         room            (string)      optional, default is 'TBA'
         color           (string)      optional, default is a random color
+        
+        returns an unique ID
     */
     
-    scheda.drawSchedule('M', '7-10', 'CMSC 100', 'X-1L', 'ICS PC Lab 8');
+    scheda.drawCourse('M', '7-10', 'CMSC 100', 'X-1L', 'ICS PC Lab 8');
+    
+    // remove a course
+    scheda.remove(id);
 &lt;/script&gt;
                 </pre>
             </div>
@@ -397,9 +410,13 @@
                 </tr>
             </table>
             <h5>COMMENTS AND SUGGESTIONS</h5>
+            <br class="clearfix"/>
+            <div class="fb-comments" data-href="http://ravenjohn.github.io/scheda.js/" data-numposts="10" data-colorscheme="dark" style="margin: 0 auto;"></div>
+            <br class="clearfix"/>
             <span id="copyright">
-            2013. Raven John Lagrimas. All rights reserved.<br />
-            rjlagrimas08@gmail.com
+                2013. Raven John Lagrimas. All rights reserved.
+                <br />
+                <a href="mailto:rjlagrimas08@gmail.com" target="_blank" style="color: #FFF; text-decoration: none;">rjlagrimas08@gmail.com</a>
             </span>
         </footer>
         <script type="text/javascript" src="scheda.js"></script>

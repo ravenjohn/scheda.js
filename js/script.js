@@ -7,7 +7,6 @@
         canvas = document.getElementById('canvas'),
         download_button = document.getElementById('download_button'),
         add_button = document.getElementById('add_button'),
-        fonts = document.querySelectorAll('.font-changer'),
         days = document.querySelectorAll('.day'),
         plus = document.querySelectorAll('.tab-toggler'),
         headerHeight = document.getElementsByTagName('header')[0].clientHeight,
@@ -57,12 +56,6 @@
             };
         }
     }
-    
-    for (i in fonts) {
-        if (i > -1) {
-            
-        }
-    }
 
     download_button.onclick = scheda.downloadSchedule;
     add_button.onclick = function(){
@@ -92,11 +85,11 @@
             }
         }
 
-        id = scheda.drawSchedule(_day, time, courseCode.value, sectionName.value, room.value, '#' + document.getElementById('schedBgColor').value);
-        string = [_day, time, courseCode.value, sectionName.value, room.value].join(" ");
+        id = scheda.drawCourse(_day, time, courseCode.value, sectionName.value, room.value, '#' + document.getElementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.value, _day, time, room.value].join(" ");
         
-        if (string.length > 34) {
-            string = string.substring(0, 31);
+        if (string.length > 24) {
+            string = string.substring(0, 21);
             string += "...";
         }
         

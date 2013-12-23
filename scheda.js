@@ -47,7 +47,7 @@
         cvrt = function (e, f) {
             e.length < 3 && (e += "00");
             e = parseInt(e, 10);
-            (e < 700 || (f && e == 700)) && (e += 1200);
+            (e < 700 || (f && e === 700)) && (e += 1200);
             e += "";
             return ((parseInt(e.substring(0, e.length - 2), 10) - 7) * 4) + (parseInt(e.substring(e.length - 2), 10) / 15);
         },
@@ -111,7 +111,7 @@
             return [S4() + S4(), S4(), S4(), S4(), S4() + S4() + S4()].join(separator || "-");
         };
 
-    scheda.drawSchedule = function (day, time, courseCode, sectionName, room, color) {
+    scheda.drawCourse = function (day, time, courseCode, sectionName, room, color) {
         var y,
             sp,
             id,
@@ -133,8 +133,7 @@
                 c.font = conf.sched.style + " " + conf.sched.size + "px " + conf.sched.font;
                 if (room === "") {
                     c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
-                }
-                else {
+                } else {
                     c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
                     c.fillText(room, tC(w, c, room) + x, y + (sp / 2) + 10);
                 }
@@ -177,13 +176,12 @@
         var i,
             j;
         for (i in config) {
-            if(config.hasOwnProperty(i) && conf[i]){
-                if(typeof config[i] === "object"){
+            if (config.hasOwnProperty(i) && conf[i]) {
+                if (typeof config[i] === "object") {
                     for (j in config[i]) {
                         conf[i][j] = config[i][j];
                     }
-                }
-                else {
+                } else {
                     conf[i] = config[i];
                 }
             }
@@ -203,7 +201,7 @@
         scheda.init();
         save = false;
         for (i in history) {
-            i > -1 && scheda.drawSchedule.apply(undefined, history[i].args);
+            i > -1 && scheda.drawCourse.apply(undefined, history[i].args);
         }
         save = true;
     };
@@ -211,7 +209,7 @@
     scheda.remove = function (id) {
         var i;
         for (i in history) {
-            (i > -1 && id === history[i].id) && history.splice(i, 1);
+            i > -1 && id === history[i].id && history.splice(i, 1);
         }
         scheda.repaint();
     };
@@ -307,7 +305,7 @@
 
     scheda.downloadSchedule = function (e) {
         var a = document.createElement("a");
-        if ((a.download = prompt("Please input desired file name:") + ".png") != ".png") {
+        if ((a.download = prompt("Please input desired file name:") + ".png") !== ".png") {
             console.log(a.download);
             a.type = "image/png";
             a.href = canvas.toDataURL().replace(/^data:image\/[^;]/, "data:application/octet-stream");
