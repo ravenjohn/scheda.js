@@ -132,7 +132,7 @@
                 c.fillStyle = conf.sched.color;
                 c.font = conf.sched.style + " " + conf.sched.size + "px " + conf.sched.font;
                 if (room === "") {
-                    c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) + (y/6));
+                    c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
                 }
                 else {
                     c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
