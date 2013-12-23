@@ -131,8 +131,13 @@
                 c.lineWidth = 0.5;
                 c.fillStyle = conf.sched.color;
                 c.font = conf.sched.style + " " + conf.sched.size + "px " + conf.sched.font;
-                c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
-                c.fillText(room, tC(w, c, room) + x, y + (sp / 2) + 10);
+                if (room === "") {
+                    c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) + (y/6));
+                }
+                else {
+                    c.fillText(courseCode, tC(w, c, courseCode) + x, y + (sp / 2) - 2);
+                    c.fillText(room, tC(w, c, room) + x, y + (sp / 2) + 10);
+                }
                 c.stroke();
             };
 
@@ -141,7 +146,7 @@
         time[1] = cvrt(time[1], 1) - (time[0] = cvrt(time[0]));
         y = (time[0] / 4) * h + h;
         sp = (time[1] / 4) * h;
-        room = room || "TBA";
+        room = room || "";
         courseCode = courseCode + "\n" + (sectionName || "");
         day = day.toUpperCase();
         !color && (color = randomColor());
@@ -198,11 +203,21 @@
         scheda.init();
         save = false;
         for (i in history) {
-            if (i > -1) {
-                scheda.drawSchedule.apply(undefined, history[i].args);
-            }
+            i > -1 && scheda.drawSchedule.apply(undefined, history[i].args);
         }
         save = true;
+    };
+
+    scheda.remove = function (id) {
+        var i;
+        for (i in history) {
+            (i > -1 && id === history[i].id) && history.splice(i, 1);
+        }
+        scheda.repaint();
+    };
+
+    scheda.getHistory = function () {
+        return history;
     };
 
     scheda.init = function (id, config) {

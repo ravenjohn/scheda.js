@@ -71,6 +71,7 @@
             day = document.querySelectorAll('.toggled'),
             _day = "",
             id,
+            string,
             i,
             room = document.getElementById('room'),
             time = document.getElementById('from').value +
@@ -92,6 +93,14 @@
         }
 
         id = scheda.drawSchedule(_day, time, courseCode.value, sectionName.value, room.value);
+        string = [_day, time, courseCode.value, sectionName.value, room.value].join(" ");
+        
+        if (string.length > 34) {
+            string = string.substring(0, 31);
+            string += "...";
+        }
+        
+        document.getElementById('course_list').innerHTML += "<li>" + string + "<button class='x_button' onclick='scheda.remove(\"" + id + "\");this.parentNode.parentNode.removeChild(this.parentNode);'>X</button></li>";
         room.value = sectionName.value = courseCode.value = "";
     }
     

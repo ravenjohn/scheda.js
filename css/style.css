@@ -286,3 +286,13 @@ select{
 .clearfix:after {
   clear: both;
 }
+#course_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.x_button{
+    background: none;
+    border: 0;
+    color: red;
+}
