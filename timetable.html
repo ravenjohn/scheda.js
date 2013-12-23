@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" />
+		<title> Scheda </title>
+        <style>
+            *{
+                text-align : center;
+            }
+        </style>
+	</head>
+	<body>
+		<canvas id="sched"></canvas>
+		<script type="text/javascript" src="scheda.js"></script>
+		<script type="text/javascript">
+            scheda.init("sched");
+			scheda.drawSchedule("M", "7-10", "Scheda.js", "", "Soon", "#2c3e50");
+			scheda.drawSchedule("M", "1-4", "Scheda.js", "", "Soon", "#e74c3c");
+			scheda.drawSchedule("S", "8-12", "Scheda.js", "", "Soon", "#16a085");
+			scheda.drawSchedule("TTH", "2:30-4", "Scheda.js", "", "Soon", "#8e44ad");
+			scheda.drawSchedule("WF", "1-2", "Scheda.js", "", "Soon", "#e67e22");
+			scheda.drawSchedule("TTH", "10-11", "Scheda.js", "", "Soon", "#3498db");
+			scheda.drawSchedule("F", "4-7", "Scheda.js", "", "Soon", "#95a5a6");
+			scheda.drawSchedule("W", "4-7", "Scheda.js", "", "Soon", "#f1c40f");
+		</script>
+	</body>
+</html>

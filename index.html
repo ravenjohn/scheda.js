@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Scheda.js</title>
+		<link rel="shortcut icon" href="favicon.png">
+		<link rel="stylesheet" href="css/style.css" />
+		<meta name="description" content="Scheda Schedule SystemOne Timetable." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:image" content="http://ravenjohn.github.io/scheda.js/img/logo.png"/>
+		<meta property="og:title" content="Style UP!"/>
+		<meta property="og:url" content="http://ravenjohn.github.io/scheda.js/"/>
+		<meta property="og:site_name" content="Scheda"/>
+	</head>
+	<body>
+        <header>
+            <span class="helper"></span>
+            <img src="img/logo.png" alt="Scheda Logo" width="319" height="63"/>
+        </header>
+        <section id="app">
+            <section id="tabs">
+                <div class="tab">
+                    <div class="tab-icon">
+                        <span class="helper"></span>
+                        <img src="img/home.png" alt="Home" width="37" height="31"/>
+                    </div>
+                    <div class="tab-title">Home</div>
+                    <br class="clearfix"/>
+                </div>
+                <div class="tab" id="manage_schedule_tab">
+                    <div class="tab-icon">
+                        <span class="helper"></span>
+                        <img src="img/manage-sched.png" alt="Manage Sched" width="32" height="32"/>
+                    </div>
+                    <div class="tab-title">
+                        Manage Schedule
+                        <div class="tab-toggler" target="add_courses_content">+</div>
+                    </div>
+                    <div class="tab-content hidden" id="add_courses_content">
+                        Add Courses
+                        <br />
+                        <input type="text" placeholder="Course Name" id="course"/>
+                        <br />
+                        <input type="text" placeholder="Section" id="section"/>
+                        <button class="day">M</button>
+                        <button class="day">T</button>
+                        <button class="day">W</button>
+                        <button class="day">Th</button>
+                        <button class="day">F</button>
+                        <button class="day">S</button>
+                        <br />
+                        from
+                        <select id="from">
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <select id="from2">
+                            <option value=":00">00</option>
+                            <option value=":15">15</option>
+                            <option value=":30">30</option>
+                            <option value=":45">45</option>
+                        </select>
+                        to
+                        <select id="to">
+                            <option value="7">7</option>
+                            <option value="8" selected="selected">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        <select id="to2">
+                            <option value=":00">00</option>
+                            <option value=":15">15</option>
+                            <option value=":30">30</option>
+                            <option value=":45">45</option>
+                        </select>
+                        <br />
+                        <input type="text" placeholder="Room" id="room" />
+                        <button id="add_button">ADD</button>
+                        <div class="tab-title">Courses</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="tab" id="theme_tab">
+                    <div class="tab-icon">
+                        <span class="helper"></span>
+                        <img src="img/theme.png" alt="Theme" width="35" height="35"/>
+                    </div>
+                    <div class="tab-title">
+                        Theme
+                        <div class="tab-toggler" target="theme_content_tab">+</div>
+                    </div>
+                    <br class="clearfix"/>
+                    <div class="tab-content hidden" id="theme_content_tab">
+                    
+                        <div class="tab-icon">
+                            <span class="helper"></span>
+                            <img src="img/profile.png" alt="Profile" width="36" height="34"/>
+                        </div>
+                        <div class="tab-title">Scheda Theme</div>
+                        
+                        <div class="tab-icon">
+                            <span class="helper"></span>
+                            <img src="img/bgcolor.png" alt="Background Colors" width="24" height="24"/>
+                        </div>
+                        <div class="tab-title">Background Colors</div>
+                        <div class="tab-option">
+                            Main
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'bgColor\');'}" type="text" id="bgColor"/>
+                            <br />
+                            Header
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'headerBgColor\');'}" type="text" id="headerBgColor"/>
+                            <br />
+                            Time
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'time.bgColor\');'}" type="text" id="timeBgColor"/>
+                            <br />
+                        </div>
+                        
+                        <div class="tab-icon">
+                            <span class="helper"></span>
+                            <img src="img/gridcolor.png" alt="Grid Colors" width="36" height="32"/>
+                        </div>
+                        <div class="tab-title">Grid Colors</div>
+                        <div class="tab-option">
+                            Mini Grid
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'miniGridColor\');'}" type="text" id="miniGridColor"/>
+                            <br />
+                            Horizontal Grid
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'hMainGridColor\');'}" type="text" id="hMainGridColor"/>
+                            <br />
+                            Vertical Grid
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'vMainGridColor\');'}" type="text" id="vMainGridColor"/>
+                            <br />
+                        </div>
+
+                        <div class="tab-icon" id="font_colors_icon">
+                            <span class="helper"></span>
+                            Aa
+                        </div>
+                        <div class="tab-title">Font Colors</div>
+                        <div class="tab-option">
+                            Time
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'time.color\');'}" type="text" id="timeColor"/>
+                            <br />
+                            Day
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'day.color\');'}" type="text" id="dayColor"/>
+                            <br />
+                            Courses
+                            <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'sched.color\');'}" type="text" id="schedColor"/>
+                            <br />
+                        </div>
+                        
+                        <div class="tab-icon">
+                            <span class="helper"></span>
+                            Aa
+                        </div>
+                        <div class="tab-title">Font Family</div>
+                        <div class="tab-option">
+                            Time
+                            <select onchange="updateConfig(this.value, 'time.font')">
+                                <option value="Arial">Arial</option>
+                                <option value="Arial Black">Arial Black</option>
+                                <option value="Book Antiqua">Book Antiqua</option>
+                                <option value="Charcoal">Charcoal</option>
+                                <option value="Comic Sans MS">Comic Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Cursive">Cursive</option>
+                                <option value="Gadget">Gadget</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Geneva">Geneva</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Lucida Grande">Lucida Grande</option>
+                                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Palatino">Palatino</option>
+                                <option value="Palatino Linotype">Palatino Linotype</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                            <br />
+                            Day
+                            <select onchange="updateConfig(this.value, 'day.font')">
+                                <option value="Arial">Arial</option>
+                                <option value="Arial Black">Arial Black</option>
+                                <option value="Book Antiqua">Book Antiqua</option>
+                                <option value="Charcoal">Charcoal</option>
+                                <option value="Comic Sans MS">Comic Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Cursive">Cursive</option>
+                                <option value="Gadget">Gadget</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Geneva">Geneva</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Lucida Grande">Lucida Grande</option>
+                                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Palatino">Palatino</option>
+                                <option value="Palatino Linotype">Palatino Linotype</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                            <br />
+                            Course
+                            <select onchange="updateConfig(this.value, 'sched.font')">
+                                <option value="Arial">Arial</option>
+                                <option value="Arial Black">Arial Black</option>
+                                <option value="Book Antiqua">Book Antiqua</option>
+                                <option value="Charcoal">Charcoal</option>
+                                <option value="Comic Sans MS">Comic Sans MS</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Cursive">Cursive</option>
+                                <option value="Gadget">Gadget</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Geneva">Geneva</option>
+                                <option value="Helvetica">Helvetica</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Lucida Grande">Lucida Grande</option>
+                                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Palatino">Palatino</option>
+                                <option value="Palatino Linotype">Palatino Linotype</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                                <option value="Verdana">Verdana</option>
+                            </select>
+                            <br />
+                        </div>
+
+                        <div class="tab-icon" id="font_styles_icon">
+                            <span class="helper"></span>
+                            Aa
+                        </div>
+                        <div class="tab-title">Font Styles</div>
+                        <div class="tab-option">
+                            Time
+                            <select onchange="">
+                                <option value="normal">normal</option>
+                                <option value="bold">bold</option>
+                                <option value="italic">italic</option>
+                            </select>
+                            <br />
+                            Day
+                            <select onchange="updateConfig(this.value, 'day.style');">
+                                <option value="normal">normal</option>
+                                <option value="bold">bold</option>
+                                <option value="italic">italic</option>
+                            </select>
+                            <br />
+                            Courses
+                            <select onchange="updateConfig(this.value, 'sched.style');">
+                                <option value="normal">normal</option>
+                                <option value="bold">bold</option>
+                                <option value="italic">italic</option>
+                            </select>
+                            <br />
+                        </div>
+                        
+                        <div class="tab-icon">
+                            <span class="helper"></span>
+                            12
+                        </div>
+                        <div class="tab-title">Font Sizes</div>
+                        <div class="tab-option">
+                            Time
+                            <input max="30" min="0" type="number" value="13" onchange="updateConfig(this.value, 'time.size')"/>
+                            <br />
+                            Day
+                            <input max="30" min="0" type="number" value="13" onchange="updateConfig(this.value, 'day.size')"/>
+                            <br />
+                            Course
+                            <input max="30" min="0" type="number" value="13" onchange="updateConfig(this.value, 'sched.size')"/>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="tab" id="theme_tab">
+                    <div class="tab-icon">
+                        <span class="helper"></span>
+                        <img src="img/courses.png" alt="SysOne Courses" width="30" height="30"/>
+                    </div>
+                    <div class="tab-title">
+                        SystemOne Courses
+                        <div class="tab-toggler" target="s1_courses_content_tab">+</div>
+                    </div>
+                    <br class="clearfix"/>
+                    <div class="tab-content hidden" id="s1_courses_content_tab">
+                    </div>
+                </div>
+                <br class="clearfix"/>
+            </section>
+            <section id="sched">
+                <span class="helper"></span>
+                <canvas id="canvas"></canvas>
+                <br />
+                <button id="download_button">Download</button>
+            </section>
+        </section>
+        <section id="howto">
+            <span>Here's how to use Scheda</span>
+            <br />
+            <div class="code">
+                <pre>
+&lt;!-- the markup --&gt;
+&lt;canvas id="timetable"&gt;&lt;/canvas&gt;
+
+&lt;!-- the script --&gt;
+&lt;script type="text/javascript" src="scheda.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    // after calling this, you can call scheda.init() again but without the ID to clear the timetable
+    scheda.init('timetable');
+    
+    // initializing with config
+    scheda.init('timetable', {
+        bgColor : '#FFF',
+        sched : {
+            color : "#000",
+            style : "bold",
+            font : "Verdana",
+            size : 13
+        }
+    });
+
+    // setting config after initialization
+    scheda.setConfig({
+        bgColor : '#FFF',
+        sched : {
+            color : "#000",
+            style : "bold",
+            font : "Verdana",
+            size : 13
+        }
+    });
+
+    /**
+        day             (string)      'MTWThFS', 'M', 'TTh'
+        time            (string)      '7-8', '1:15-2:45'
+        courseCode      (string)      'CMSC 100', required
+        sectionName     (string)      optional, default is ''
+        room            (string)      optional, default is 'TBA'
+        color           (string)      optional, default is a random color
+    */
+    
+    scheda.drawSchedule('M', '7-10', 'CMSC 100', 'X-1L', 'ICS PC Lab 8');
+&lt;/script&gt;
+                </pre>
+            </div>
+        </section>
+        <footer>
+            <table>
+                <tr>
+                    <th>ABOUT SCHEDA?</th>
+                    <th>VISIT SCHEDA ON GITHUB</th>
+                    <th>CONTACT ME</th>
+                </tr>
+                <tr>
+                    <td>
+                        Scheda is a mini-project out of boredom. It aims to provide users with much more customizable timetables and developers with light-weight, independent, and easy to use JavaScript library. Licensed under MIT by Raven Lagrimas. The term Scheda is a latin word meaning a piece of paper just so you know. Last but not the least, the site was designed by Jean Manas <3
+                    </td>
+                    <td>
+                        <a href="//github.com/ravenjohn/scheda.js" target="_blank"><img src="img/octocat.png" alt="octocat" width="256" height="256"/></a>
+                    </td>
+                    <td>
+                        <a href="mailto:rjlagrimas08@gmail.com" target="_blank"><img src="img/insidepage_email_icon.png"></a>
+                        <a href="//facebook.com/rvnjl" target="_blank"><img src="img/insidepage_facebook_icon.png"></a>
+                        <a href="//twitter.com/ravenlagrimas" target="_blank"><img src="img/insidepage_twitter_icon.png"></a>
+                    </td>
+                </tr>
+            </table>
+            <h5>COMMENTS AND SUGGESTIONS</h5>
+            <span id="copyright">
+            2013. Raven John Lagrimas. All rights reserved.<br />
+            rjlagrimas08@gmail.com
+            </span>
+        </footer>
+        <script type="text/javascript" src="scheda.js"></script>
+        <script type="text/javascript" src="jscolor/jscolor.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

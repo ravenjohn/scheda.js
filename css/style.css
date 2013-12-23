@@ -1,0 +1,288 @@
+@font-face {
+	font-family: Casper;
+	src: url("../font/Casper/Casper.ttf")  format("truetype");
+}
+@font-face {
+    font-family: MavenPro;
+    src: url("../font/MavenPro/MavenProLight-300.otf") format("opentype");
+}
+*{
+    font-family: MavenPro;
+    outline: 0;
+}
+body, html{
+    background: #1A1A1A;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background: #000;
+}
+::-webkit-scrollbar-thumb{
+    background: #CCC;
+}
+
+header{
+    background: #252525;
+    width: 100%;
+    height: 115px;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+header img{
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#app{
+    clear: both;
+    background: #303030;
+}
+#tabs{
+    background: #1D1D1D;
+    float: left;
+    width: 375px;
+    overflow-y: scroll;
+    min-height: 391px;
+}
+.tab-icon{
+    background: #252525;
+    text-align: center;
+    width: 57px;
+    height: 57px;
+    float: left;
+    border-bottom: 1px solid #1F1F1F;
+}
+.tab-icon img{
+    vertical-align: middle;
+}
+.tab-title{
+    color: #BEBEBE;
+    float: left;
+    width: 248px;
+    border-bottom: 1px solid #1F1F1F;
+    color: #BEBEBE;
+    padding-left: 40px;
+    height: 57px;
+    line-height: 57px;
+    position: relative;
+}
+.tab-toggler{
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    color: #FFF;
+    font-size: 40px;
+    cursor: pointer;
+}
+.tab-content{
+    color: #BEBEBE;
+    padding-bottom: 20px;
+}
+#manage_schedule_tab .tab-content{
+    padding-left: 57px;
+    padding-right: 15px;
+    line-height: 50px;
+}
+input{
+    background: #252525;
+    border: none;
+    font-size: 14px;
+    padding: 0 7px;
+    height: 31px;
+    color: #BEBEBE;
+}
+input[type="number"]{
+    width: 35px;
+}
+#course{
+    width: 273px;
+}
+#section{
+    width: 50px;
+    text-align: center;
+    float: left;
+    margin-right: 3px;
+}
+button{
+    cursor: pointer;
+    color: #BEBEBE;
+}
+.day{
+    color: #BEBEBE;
+    word-spacing: 0;
+    margin: 0;
+    float: left;
+    width: 34px;
+    height: 31px;
+    border: none;
+    border-right: 1px solid #414141;
+    background: #4a4a4a; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4a4a4a 1%, #262626 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#4a4a4a), color-stop(100%,#262626)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4a4a4a 1%,#262626 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4a4a4a 1%,#262626 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4a4a4a 1%,#262626 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4a4a4a 1%,#262626 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4a4a', endColorstr='#262626',GradientType=0 ); /* IE6-9 */
+}
+.day:active, .day.toggled{
+    background: #262626; /* Old browsers */
+    background: -moz-linear-gradient(top,  #262626 0%, #4a4a4a 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#262626), color-stop(99%,#4a4a4a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #262626 0%,#4a4a4a 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #262626 0%,#4a4a4a 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #262626 0%,#4a4a4a 99%); /* IE10+ */
+    background: linear-gradient(to bottom,  #262626 0%,#4a4a4a 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626', endColorstr='#4a4a4a',GradientType=0 ); /* IE6-9 */
+}
+#add_button{
+    height: 31px;
+    background: #3A6235;
+    border: 0;
+    padding: 0 20px;
+}
+#add_button:hover, #download_button:hover{
+    background: #6BBB62;
+    color: #FFF;
+}
+#room{
+    margin: 0;
+}
+#sched{
+    text-align: center;
+    float: right;
+    position: relative;
+}
+#howto{
+    background: #1A1A1A;
+    width: auto;
+    padding: 50px;
+    margin: 0 auto;
+}
+#howto span{
+    color: #6BBB62;
+    font-family: Casper;
+}
+.code{
+    background: #212121;
+    border-left: 20px solid #6BBB62;
+    padding-left: 25px;
+}
+.code pre{
+    font-family: "Lucida Console";
+    color: #FFF;
+}
+footer{
+    text-align: center;
+}
+footer table{
+    margin: 0 auto;
+}
+footer table td{
+    font-family: Casper;
+    width: 400px;
+    color: #FFF;
+    font-size: 18px;
+}
+footer table td:first-child{
+    text-align: left;
+}
+footer table th{
+    color: #6BBB62;
+    font-size: 24px;
+    font-family: Casper;
+    padding-bottom: 20px;
+}
+h5{
+    font-size: 28px;
+    color: #6BBB62;
+    font-family: Casper;
+}
+#font_colors_icon{
+    color: #6BBB62;
+}
+#download_button{
+    margin-top: 20px;
+    height: 31px;
+    background: #3A6235;
+    border: 0;
+    padding: 0 20px;
+    font-size: 16px;
+}
+select{
+    color: #000;
+}
+#copyright{
+    font-family : "Casper";
+    color: #FFF;
+    font-size: 12px;
+}
+#canvas{
+    display: inline;
+    vertical-align: middle;
+}
+.tab-option{
+    float: left;
+    width: 100%;
+    text-align: right;
+    vertical-align: middle;
+    background: #151515;
+}
+.color{
+    width: 48px;
+}
+.hidden{
+    padding: 0;
+    overflow: hidden;
+    height: 0px;    
+}
+.tab:first-child{
+    margin-top: 20px;
+}
+.tab{
+    border-left: 10px solid #1D1D1D;
+}
+.expand{
+    height: auto;
+    -webkit-animation: expand 1s;
+    -moz-animation: expand 1s;
+    -o-animation: expand 1s;
+    animation: expand 1s;
+}
+
+@-webkit-keyframes expand {
+  0%   { height: 0px; }
+  100% { height: 370px; }
+}
+@-moz-keyframes expand {
+  0%   { height: 0px; }
+  100% { height: 370px; }
+}
+@-o-keyframes expand {
+  0%   { height: 0px; }
+  100% { height: 370px; }
+}
+@keyframes expand {
+  0%   { height: 0px; }
+  100% { height: 370px; }
+}
+
+.clearfix {
+  clear: both;
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
