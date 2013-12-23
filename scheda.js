@@ -218,6 +218,23 @@
         return history;
     };
 
+    scheda.getCourse = function (id) {
+        var i;
+        for (i in history) {
+            if (i > -1 && id === history[i].id) {
+                return history[i].arguments;
+            }
+        }
+    };
+
+    scheda.updateCourse = function (id, args) {
+        var i;
+        for (i in history) {
+            i > -1 && id === history[i].id && (history[i].arguments = args);
+        }
+        scheda.repaint()
+    };
+
     scheda.init = function (id, config) {
         var days = ["Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur"],
             i,
@@ -305,8 +322,7 @@
 
     scheda.downloadSchedule = function (e) {
         var a = document.createElement("a");
-        if ((a.download = prompt("Please input desired file name:") + ".png") !== ".png") {
-            console.log(a.download);
+        if ((a.download = prompt("Please input desired file name:") + ".png") !== ".png" && a.download !== "null.png") {
             a.type = "image/png";
             a.href = canvas.toDataURL().replace(/^data:image\/[^;]/, "data:application/octet-stream");
             a.onclick = function () {

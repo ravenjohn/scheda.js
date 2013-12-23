@@ -358,17 +358,6 @@
         }
     });
 
-    // setting config after initialization
-    scheda.setConfig({
-        bgColor : '#FFF',
-        sched : {
-            color : "#000",
-            style : "bold",
-            font : "Verdana",
-            size : 13
-        }
-    });
-
     /**
         day             (string)      'MTWThFS', 'M', 'TTh'
         time            (string)      '7-8', '1:15-2:45'
@@ -382,8 +371,17 @@
     
     scheda.drawCourse('M', '7-10', 'CMSC 100', 'X-1L', 'ICS PC Lab 8');
     
+    // setting config after initialization
+    scheda.setConfig(config);
+
     // remove a course
     scheda.remove(id);
+
+    // get history
+    scheda.getHistory();
+
+    // repaint using
+    scheda.repaint();
 &lt;/script&gt;
                 </pre>
             </div>
