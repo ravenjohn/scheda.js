@@ -92,7 +92,7 @@
             }
         }
 
-        id = scheda.drawSchedule(_day, time, courseCode.value, sectionName.value, room.value);
+        id = scheda.drawSchedule(_day, time, courseCode.value, sectionName.value, room.value, document.getElementById('schedBgColor').value);
         string = [_day, time, courseCode.value, sectionName.value, room.value].join(" ");
         
         if (string.length > 34) {
