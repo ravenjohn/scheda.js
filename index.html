@@ -2,12 +2,13 @@
 <html>
 	<head>
 		<title>Scheda.js</title>
-		<link rel="shortcut icon" href="favicon.png">
+		<link rel="shortcut icon" href="favicon.png" />
+        <link rel="image_src" href="img/logo.png" />
 		<link rel="stylesheet" href="css/style.css" />
-		<meta name="description" content="Scheda Schedule SystemOne Timetable." />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Create your dream sched with a style." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta property="og:image" content="http://ravenjohn.github.io/scheda.js/img/logo.png"/>
-		<meta property="og:title" content="Style UP!"/>
+		<meta property="og:title" content="Scheda. Style UP."/>
 		<meta property="og:url" content="http://ravenjohn.github.io/scheda.js/"/>
 		<meta property="og:site_name" content="Scheda"/>
 	</head>
@@ -32,7 +33,7 @@
                         <img src="img/home.png" alt="Home" width="37" height="31"/>
                     </div>
                     <div class="tab-title">Home</div>
-                    <br class="clearfix"/>
+                    <br class="clearfix" />
                 </div>
                 <div class="tab" id="manage_schedule_tab">
                     <div class="tab-icon">
@@ -119,13 +120,13 @@
                     </div>
                     <br class="clearfix"/>
                     <div class="tab-content hidden" id="theme_content_tab">
-                    
+
                         <div class="tab-icon">
                             <span class="helper"></span>
                             <img src="img/profile.png" alt="Profile" width="36" height="34"/>
                         </div>
                         <div class="tab-title">Scheda Theme</div>
-                        
+
                         <div class="tab-icon">
                             <span class="helper"></span>
                             <img src="img/bgcolor.png" alt="Background Colors" width="24" height="24"/>
@@ -142,7 +143,7 @@
                             <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'time.bgColor\');'}" type="text" id="timeBgColor"/>
                             <br />
                         </div>
-                        
+
                         <div class="tab-icon">
                             <span class="helper"></span>
                             <img src="img/gridcolor.png" alt="Grid Colors" width="36" height="32"/>
@@ -176,7 +177,7 @@
                             <input class="color {pickerPosition:'left', onImmediateChange:'updateConfig(\'#\' + this, \'sched.color\');'}" type="text" id="schedColor"/>
                             <br />
                         </div>
-                        
+
                         <div class="tab-icon">
                             <span class="helper"></span>
                             Aa
@@ -288,7 +289,7 @@
                             </select>
                             <br />
                         </div>
-                        
+
                         <div class="tab-icon">
                             <span class="helper"></span>
                             12
@@ -346,7 +347,7 @@
 
     // after calling this, you can call scheda.init() again but without the ID to clear the timetable
     scheda.init('timetable');
-    
+
     // initializing with config
     scheda.init('timetable', {
         bgColor : '#FFF',
@@ -365,12 +366,12 @@
         sectionName     (string)      optional, default is ''
         room            (string)      optional, default is 'TBA'
         color           (string)      optional, default is a random color
-        
-        returns an unique ID
+
+        returns a unique ID
     */
-    
+
     scheda.drawCourse('M', '7-10', 'CMSC 100', 'X-1L', 'ICS PC Lab 8');
-    
+
     // setting config after initialization
     scheda.setConfig(config);
 

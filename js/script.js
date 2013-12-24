@@ -119,4 +119,5 @@
         document.getElementById('dayColor').color.fromString(scheda.getConfig('day.color').substring(1));
         document.getElementById('schedColor').color.fromString(scheda.getConfig('sched.color').substring(1));
     };
+
 }(this));
