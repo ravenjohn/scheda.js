@@ -322,15 +322,15 @@
 
     scheda.downloadSchedule = function (e) {
         var a = document.createElement("a");
-        if ((a.download = prompt("Please input desired file name:") + ".png") !== ".png" && a.download !== "null.png") {
-            a.type = "image/png";
-            a.href = canvas.toDataURL().replace(/^data:image\/[^;]/, "data:application/octet-stream");
-            a.onclick = function () {
-                this.parentNode.removeChild(this);
-            };
-            document.getElementsByTagName("body")[0].appendChild(a);
-            a.click();
-        }
+        a.setAttribute('download', 'schedule');
+        a.type = "image/png";
+        a.target = '_blank';
+        a.href = canvas.toDataURL();
+        a.onclick = function () {
+            this.parentNode.removeChild(this);
+        };
+        document.getElementsByTagName("body")[0].appendChild(a);
+        a.click();
         e && e.preventDefault();
     };
 
